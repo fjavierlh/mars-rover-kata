@@ -36,9 +36,13 @@ export class Coordinates {
   }
 
   decreaseLongitude() {
-    if (this.latitude === 0) {
+    if (this.longitude === 0) {
       return Coordinates.create(this.latitude, Coordinates.boundaryLongitude - 1);
     }
     return Coordinates.create(this.latitude, this.longitude - 1);
+  }
+
+  toString() {
+    return this.latitude + ':' + this.longitude;
   }
 }
