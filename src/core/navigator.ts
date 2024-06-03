@@ -1,8 +1,9 @@
-import { Coordinates } from "./coordinates";
+import { Coordinates } from './coordinates';
 
-type Navigator = NavigatorFacingNorth | NavigatorFacingSouth | NavigatorFacingEast | NavigatorFacingWest;
+export type Navigator = NavigatorFacingNorth | NavigatorFacingSouth | NavigatorFacingEast | NavigatorFacingWest;
+
 export class NavigatorFacingNorth {
-  constructor(private coordinates: Coordinates) { }
+  constructor(private coordinates: Coordinates) {}
 
   left() {
     return new NavigatorFacingWest(this.coordinates);
@@ -25,7 +26,7 @@ export class NavigatorFacingNorth {
   }
 }
 export class NavigatorFacingSouth {
-  constructor(private coordinates: Coordinates) { }
+  constructor(private coordinates: Coordinates) {}
 
   left() {
     return new NavigatorFacingEast(this.coordinates);
@@ -48,7 +49,7 @@ export class NavigatorFacingSouth {
   }
 }
 export class NavigatorFacingEast {
-  constructor(private coordinates: Coordinates) { }
+  constructor(private coordinates: Coordinates) {}
 
   left() {
     return new NavigatorFacingNorth(this.coordinates);
@@ -71,7 +72,7 @@ export class NavigatorFacingEast {
   }
 }
 export class NavigatorFacingWest {
-  constructor(private coordinates: Coordinates) { }
+  constructor(private coordinates: Coordinates) {}
 
   left() {
     return new NavigatorFacingSouth(this.coordinates);
